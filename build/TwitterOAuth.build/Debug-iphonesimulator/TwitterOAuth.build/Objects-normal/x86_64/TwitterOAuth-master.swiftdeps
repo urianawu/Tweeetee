@@ -1,7 +1,0 @@
-version: "Apple Swift version 2.1.1 (swiftlang-700.1.101.15 clang-700.1.81)"
-options: "178bd0ecd81bda3aa15892665710b32d"
-build_time: [508890074, 581007000]
-inputs:
-  "/Users/Uriana/Projects/iOS/TwitterOAuth/TwitterOAuth/AppDelegate.swift": [508890074, 0]
-  "/Users/Uriana/Projects/iOS/TwitterOAuth/TwitterOAuth/ViewController.swift": [508888756, 0]
-  "/Users/Uriana/Projects/iOS/TwitterOAuth/TwitterOAuth/TwitterClient.swift": [508888342, 0]
