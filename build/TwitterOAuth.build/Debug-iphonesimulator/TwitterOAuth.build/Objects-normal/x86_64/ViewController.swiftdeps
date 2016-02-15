@@ -1,0 +1,432 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ViewController"
+provides-nominal:
+- "C12TwitterOAuth14ViewController"
+provides-member:
+- ["C12TwitterOAuth14ViewController", ""]
+provides-dynamic-lookup:
+- "didReceiveMemoryWarning"
+- "viewDidLoad"
+- "onLogin"
+depends-top-level:
+- "ViewController"
+- !private "Void"
+- !private "UIApplication"
+- "UIViewController"
+- !private "NSURL"
+- !private "print"
+- !private "StringLiteralType"
+- "AnyObject"
+- !private "TwitterClient"
+- !private "NSError"
+- !private "BDBOAuth1Credential"
+depends-member:
+- !private ["CSo23AFHTTPRequestSerializer", "removeAccessToken"]
+- !private ["CSo20AFHTTPSessionManager", "fetchRequestTokenWithPath"]
+- !private ["CSo20AFHTTPSessionManager", "requestSerializer"]
+- !private ["CSo20AFHTTPSessionManager", "sharedInstance"]
+- !private ["PSo25AFURLRequestSerialization", "removeAccessToken"]
+- !private ["CSo19AFURLSessionManager", "fetchRequestTokenWithPath"]
+- !private ["CSo19AFURLSessionManager", "requestSerializer"]
+- !private ["CSo19AFURLSessionManager", "sharedInstance"]
+- !private ["PSs9AnyObject", "NSURL"]
+- !private ["PSs9AnyObject", "TwitterClient"]
+- !private ["PSs9AnyObject", "UIApplication"]
+- ["PSs9AnyObject", "didReceiveMemoryWarning"]
+- !private ["PSs9AnyObject", "fetchRequestTokenWithPath"]
+- ["PSs9AnyObject", "init"]
+- ["PSs9AnyObject", "onLogin"]
+- !private ["PSs9AnyObject", "openURL"]
+- !private ["PSs9AnyObject", "print"]
+- !private ["PSs9AnyObject", "removeAccessToken"]
+- !private ["PSs9AnyObject", "requestSerializer"]
+- !private ["PSs9AnyObject", "sharedApplication"]
+- !private ["PSs9AnyObject", "sharedInstance"]
+- !private ["PSs9AnyObject", "token"]
+- ["PSs9AnyObject", "viewDidLoad"]
+- ["PSs9AnyObject", ""]
+- !private ["CSo19BDBOAuth1Credential", "token"]
+- !private ["CSo26BDBOAuth1RequestSerializer", "removeAccessToken"]
+- !private ["CSo23BDBOAuth1SessionManager", "fetchRequestTokenWithPath"]
+- !private ["CSo23BDBOAuth1SessionManager", "requestSerializer"]
+- !private ["CSo23BDBOAuth1SessionManager", "sharedInstance"]
+- !private ["Sb", "deinit"]
+- !private ["PSs11CVarArgType", "NSURL"]
+- !private ["PSs11CVarArgType", "TwitterClient"]
+- !private ["PSs11CVarArgType", "UIApplication"]
+- ["PSs11CVarArgType", "didReceiveMemoryWarning"]
+- !private ["PSs11CVarArgType", "fetchRequestTokenWithPath"]
+- ["PSs11CVarArgType", "init"]
+- ["PSs11CVarArgType", "onLogin"]
+- !private ["PSs11CVarArgType", "openURL"]
+- !private ["PSs11CVarArgType", "print"]
+- !private ["PSs11CVarArgType", "removeAccessToken"]
+- !private ["PSs11CVarArgType", "requestSerializer"]
+- !private ["PSs11CVarArgType", "sharedApplication"]
+- !private ["PSs11CVarArgType", "sharedInstance"]
+- !private ["PSs11CVarArgType", "token"]
+- ["PSs11CVarArgType", "viewDidLoad"]
+- ["PSs11CVarArgType", ""]
+- !private ["VSs9Character", "deinit"]
+- !private ["PSs10Comparable", "init"]
+- !private ["PSs28CustomDebugStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "NSURL"]
+- !private ["PSs23CustomStringConvertible", "TwitterClient"]
+- !private ["PSs23CustomStringConvertible", "UIApplication"]
+- ["PSs23CustomStringConvertible", "didReceiveMemoryWarning"]
+- !private ["PSs23CustomStringConvertible", "fetchRequestTokenWithPath"]
+- ["PSs23CustomStringConvertible", "init"]
+- ["PSs23CustomStringConvertible", "onLogin"]
+- !private ["PSs23CustomStringConvertible", "openURL"]
+- !private ["PSs23CustomStringConvertible", "print"]
+- !private ["PSs23CustomStringConvertible", "removeAccessToken"]
+- !private ["PSs23CustomStringConvertible", "requestSerializer"]
+- !private ["PSs23CustomStringConvertible", "sharedApplication"]
+- !private ["PSs23CustomStringConvertible", "sharedInstance"]
+- !private ["PSs23CustomStringConvertible", "token"]
+- ["PSs23CustomStringConvertible", "viewDidLoad"]
+- ["PSs23CustomStringConvertible", ""]
+- !private ["Sd", "deinit"]
+- !private ["PSs9Equatable", "NSURL"]
+- !private ["PSs9Equatable", "TwitterClient"]
+- !private ["PSs9Equatable", "UIApplication"]
+- ["PSs9Equatable", "didReceiveMemoryWarning"]
+- !private ["PSs9Equatable", "fetchRequestTokenWithPath"]
+- ["PSs9Equatable", "init"]
+- ["PSs9Equatable", "onLogin"]
+- !private ["PSs9Equatable", "openURL"]
+- !private ["PSs9Equatable", "print"]
+- !private ["PSs9Equatable", "removeAccessToken"]
+- !private ["PSs9Equatable", "requestSerializer"]
+- !private ["PSs9Equatable", "sharedApplication"]
+- !private ["PSs9Equatable", "sharedInstance"]
+- !private ["PSs9Equatable", "token"]
+- ["PSs9Equatable", "viewDidLoad"]
+- ["PSs9Equatable", ""]
+- !private ["PSs41ExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["Sf", "deinit"]
+- !private ["PSs8Hashable", "NSURL"]
+- !private ["PSs8Hashable", "TwitterClient"]
+- !private ["PSs8Hashable", "UIApplication"]
+- ["PSs8Hashable", "didReceiveMemoryWarning"]
+- !private ["PSs8Hashable", "fetchRequestTokenWithPath"]
+- ["PSs8Hashable", "init"]
+- ["PSs8Hashable", "onLogin"]
+- !private ["PSs8Hashable", "openURL"]
+- !private ["PSs8Hashable", "print"]
+- !private ["PSs8Hashable", "removeAccessToken"]
+- !private ["PSs8Hashable", "requestSerializer"]
+- !private ["PSs8Hashable", "sharedApplication"]
+- !private ["PSs8Hashable", "sharedInstance"]
+- !private ["PSs8Hashable", "token"]
+- ["PSs8Hashable", "viewDidLoad"]
+- ["PSs8Hashable", ""]
+- !private ["SQ", "deinit"]
+- !private ["Si", "deinit"]
+- !private ["VSs5Int16", "deinit"]
+- !private ["VSs5Int32", "deinit"]
+- !private ["VSs5Int64", "deinit"]
+- !private ["VSs4Int8", "deinit"]
+- !private ["PSs14MirrorPathType", "init"]
+- !private ["PSo8NSCoding", "NSURL"]
+- !private ["PSo8NSCoding", "TwitterClient"]
+- !private ["PSo8NSCoding", "UIApplication"]
+- ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- !private ["PSo8NSCoding", "fetchRequestTokenWithPath"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "onLogin"]
+- !private ["PSo8NSCoding", "print"]
+- !private ["PSo8NSCoding", "removeAccessToken"]
+- !private ["PSo8NSCoding", "requestSerializer"]
+- !private ["PSo8NSCoding", "sharedInstance"]
+- !private ["PSo8NSCoding", "token"]
+- ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "fetchRequestTokenWithPath"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "removeAccessToken"]
+- !private ["PSo9NSCopying", "requestSerializer"]
+- !private ["PSo9NSCopying", "sharedInstance"]
+- !private ["PSo9NSCopying", "token"]
+- !private ["PSo26NSExtensionRequestHandling", "NSURL"]
+- !private ["PSo26NSExtensionRequestHandling", "TwitterClient"]
+- !private ["PSo26NSExtensionRequestHandling", "UIApplication"]
+- ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "onLogin"]
+- !private ["PSo26NSExtensionRequestHandling", "print"]
+- ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "AnyObject"]
+- !private ["CSo8NSObject", "BDBOAuth1Credential"]
+- !private ["CSo8NSObject", "NSError"]
+- !private ["CSo8NSObject", "NSURL"]
+- !private ["CSo8NSObject", "TwitterClient"]
+- !private ["CSo8NSObject", "UIApplication"]
+- !private ["CSo8NSObject", "Void"]
+- ["CSo8NSObject", "didReceiveMemoryWarning"]
+- !private ["CSo8NSObject", "fetchRequestTokenWithPath"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "onLogin"]
+- !private ["CSo8NSObject", "openURL"]
+- !private ["CSo8NSObject", "print"]
+- !private ["CSo8NSObject", "removeAccessToken"]
+- !private ["CSo8NSObject", "requestSerializer"]
+- !private ["CSo8NSObject", "sharedApplication"]
+- !private ["CSo8NSObject", "sharedInstance"]
+- !private ["CSo8NSObject", "token"]
+- ["CSo8NSObject", "viewDidLoad"]
+- !private ["PSo16NSObjectProtocol", "NSURL"]
+- !private ["PSo16NSObjectProtocol", "TwitterClient"]
+- !private ["PSo16NSObjectProtocol", "UIApplication"]
+- ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- !private ["PSo16NSObjectProtocol", "fetchRequestTokenWithPath"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "onLogin"]
+- !private ["PSo16NSObjectProtocol", "openURL"]
+- !private ["PSo16NSObjectProtocol", "print"]
+- !private ["PSo16NSObjectProtocol", "removeAccessToken"]
+- !private ["PSo16NSObjectProtocol", "requestSerializer"]
+- !private ["PSo16NSObjectProtocol", "sharedApplication"]
+- !private ["PSo16NSObjectProtocol", "sharedInstance"]
+- !private ["PSo16NSObjectProtocol", "token"]
+- ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "fetchRequestTokenWithPath"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "removeAccessToken"]
+- !private ["PSo14NSSecureCoding", "requestSerializer"]
+- !private ["PSo14NSSecureCoding", "sharedInstance"]
+- !private ["CSo8NSString", "init"]
+- !private ["CSo5NSURL", "init"]
+- !private ["PSo24NSURLSessionDataDelegate", "fetchRequestTokenWithPath"]
+- !private ["PSo24NSURLSessionDataDelegate", "requestSerializer"]
+- !private ["PSo24NSURLSessionDataDelegate", "sharedInstance"]
+- !private ["PSo20NSURLSessionDelegate", "fetchRequestTokenWithPath"]
+- !private ["PSo20NSURLSessionDelegate", "requestSerializer"]
+- !private ["PSo20NSURLSessionDelegate", "sharedInstance"]
+- !private ["PSo28NSURLSessionDownloadDelegate", "fetchRequestTokenWithPath"]
+- !private ["PSo28NSURLSessionDownloadDelegate", "requestSerializer"]
+- !private ["PSo28NSURLSessionDownloadDelegate", "sharedInstance"]
+- !private ["PSo24NSURLSessionTaskDelegate", "fetchRequestTokenWithPath"]
+- !private ["PSo24NSURLSessionTaskDelegate", "requestSerializer"]
+- !private ["PSo24NSURLSessionTaskDelegate", "sharedInstance"]
+- !private ["PSs16OutputStreamType", "init"]
+- !private ["PSs10Streamable", "init"]
+- !private ["SS", "init"]
+- !private ["PSs30StringInterpolationConvertible", "init"]
+- !private ["PSs24StringLiteralConvertible", "init"]
+- !private ["C12TwitterOAuth13TwitterClient", "fetchRequestTokenWithPath"]
+- !private ["C12TwitterOAuth13TwitterClient", "requestSerializer"]
+- !private ["C12TwitterOAuth13TwitterClient", "sharedInstance"]
+- !private ["PSo21UIAppearanceContainer", "NSURL"]
+- !private ["PSo21UIAppearanceContainer", "TwitterClient"]
+- !private ["PSo21UIAppearanceContainer", "UIApplication"]
+- ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "onLogin"]
+- !private ["PSo21UIAppearanceContainer", "print"]
+- ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo13UIApplication", "openURL"]
+- !private ["CSo13UIApplication", "sharedApplication"]
+- !private ["PSo18UIContentContainer", "NSURL"]
+- !private ["PSo18UIContentContainer", "TwitterClient"]
+- !private ["PSo18UIContentContainer", "UIApplication"]
+- ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "onLogin"]
+- !private ["PSo18UIContentContainer", "print"]
+- ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo18UIFocusEnvironment", "NSURL"]
+- !private ["PSo18UIFocusEnvironment", "TwitterClient"]
+- !private ["PSo18UIFocusEnvironment", "UIApplication"]
+- ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "onLogin"]
+- !private ["PSo18UIFocusEnvironment", "print"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
+- ["CSo11UIResponder", "AnyObject"]
+- !private ["CSo11UIResponder", "BDBOAuth1Credential"]
+- !private ["CSo11UIResponder", "NSError"]
+- !private ["CSo11UIResponder", "NSURL"]
+- !private ["CSo11UIResponder", "TwitterClient"]
+- !private ["CSo11UIResponder", "UIApplication"]
+- !private ["CSo11UIResponder", "Void"]
+- ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "onLogin"]
+- !private ["CSo11UIResponder", "openURL"]
+- !private ["CSo11UIResponder", "print"]
+- !private ["CSo11UIResponder", "sharedApplication"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- !private ["PSo16UIStateRestoring", "NSURL"]
+- !private ["PSo16UIStateRestoring", "TwitterClient"]
+- !private ["PSo16UIStateRestoring", "UIApplication"]
+- ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "onLogin"]
+- !private ["PSo16UIStateRestoring", "print"]
+- ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo18UITraitEnvironment", "NSURL"]
+- !private ["PSo18UITraitEnvironment", "TwitterClient"]
+- !private ["PSo18UITraitEnvironment", "UIApplication"]
+- ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "onLogin"]
+- !private ["PSo18UITraitEnvironment", "print"]
+- ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo16UIViewController", "AnyObject"]
+- !private ["CSo16UIViewController", "BDBOAuth1Credential"]
+- !private ["CSo16UIViewController", "NSError"]
+- !private ["CSo16UIViewController", "NSURL"]
+- !private ["CSo16UIViewController", "TwitterClient"]
+- !private ["CSo16UIViewController", "UIApplication"]
+- !private ["CSo16UIViewController", "Void"]
+- ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "onLogin"]
+- !private ["CSo16UIViewController", "print"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", ""]
+- !private ["Su", "deinit"]
+- !private ["VSs6UInt16", "deinit"]
+- !private ["VSs6UInt32", "deinit"]
+- !private ["VSs6UInt64", "deinit"]
+- !private ["VSs5UInt8", "deinit"]
+- !private ["Sc", "deinit"]
+- !private ["PSs31UnicodeScalarLiteralConvertible", "init"]
+- ["C12TwitterOAuth14ViewController", "AnyObject"]
+- !private ["C12TwitterOAuth14ViewController", "BDBOAuth1Credential"]
+- !private ["C12TwitterOAuth14ViewController", "NSError"]
+- !private ["C12TwitterOAuth14ViewController", "NSURL"]
+- !private ["C12TwitterOAuth14ViewController", "TwitterClient"]
+- !private ["C12TwitterOAuth14ViewController", "UIApplication"]
+- !private ["C12TwitterOAuth14ViewController", "Void"]
+- ["C12TwitterOAuth14ViewController", "deinit"]
+- ["C12TwitterOAuth14ViewController", "didReceiveMemoryWarning"]
+- ["C12TwitterOAuth14ViewController", "init"]
+- ["C12TwitterOAuth14ViewController", "onLogin"]
+- !private ["C12TwitterOAuth14ViewController", "print"]
+- ["C12TwitterOAuth14ViewController", "viewDidLoad"]
+- !private ["PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["PSs32_BuiltinStringLiteralConvertible", "init"]
+- !private ["PSs37_BuiltinUTF16StringLiteralConvertible", "init"]
+- !private ["PSs39_BuiltinUnicodeScalarLiteralConvertible", "init"]
+- !private ["PSs16_CocoaStringType", "init"]
+- !private ["PSs32_FileReferenceLiteralConvertible", "init"]
+- !private ["PSs21_ObjectiveCBridgeable", "init"]
+- !private ["PSs12_Reflectable", "init"]
+depends-nominal:
+- !private "CSo23AFHTTPRequestSerializer"
+- !private "CSo20AFHTTPSessionManager"
+- !private "PSo25AFURLRequestSerialization"
+- !private "CSo19AFURLSessionManager"
+- "PSs9AnyObject"
+- !private "CSo19BDBOAuth1Credential"
+- !private "CSo26BDBOAuth1RequestSerializer"
+- !private "CSo23BDBOAuth1SessionManager"
+- !private "Sb"
+- "PSs11CVarArgType"
+- !private "VSs9Character"
+- !private "PSs10Comparable"
+- !private "PSs28CustomDebugStringConvertible"
+- "PSs23CustomStringConvertible"
+- !private "Sd"
+- "PSs9Equatable"
+- !private "PSs41ExtendedGraphemeClusterLiteralConvertible"
+- !private "Sf"
+- "PSs8Hashable"
+- !private "SQ"
+- !private "Si"
+- !private "VSs5Int16"
+- !private "VSs5Int32"
+- !private "VSs5Int64"
+- !private "VSs4Int8"
+- !private "PSs14MirrorPathType"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- "PSo26NSExtensionRequestHandling"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "CSo5NSURL"
+- !private "PSo24NSURLSessionDataDelegate"
+- !private "PSo20NSURLSessionDelegate"
+- !private "PSo28NSURLSessionDownloadDelegate"
+- !private "PSo24NSURLSessionTaskDelegate"
+- !private "PSs16OutputStreamType"
+- !private "PSs10Streamable"
+- !private "SS"
+- !private "PSs30StringInterpolationConvertible"
+- !private "PSs24StringLiteralConvertible"
+- !private "C12TwitterOAuth13TwitterClient"
+- "PSo21UIAppearanceContainer"
+- !private "CSo13UIApplication"
+- "PSo18UIContentContainer"
+- "PSo18UIFocusEnvironment"
+- "CSo11UIResponder"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- "CSo16UIViewController"
+- !private "Su"
+- !private "VSs6UInt16"
+- !private "VSs6UInt32"
+- !private "VSs6UInt64"
+- !private "VSs5UInt8"
+- !private "Sc"
+- !private "PSs31UnicodeScalarLiteralConvertible"
+- "C12TwitterOAuth14ViewController"
+- !private "PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible"
+- !private "PSs32_BuiltinStringLiteralConvertible"
+- !private "PSs37_BuiltinUTF16StringLiteralConvertible"
+- !private "PSs39_BuiltinUnicodeScalarLiteralConvertible"
+- !private "PSs16_CocoaStringType"
+- !private "PSs32_FileReferenceLiteralConvertible"
+- !private "PSs21_ObjectiveCBridgeable"
+- !private "PSs12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/UIProgressView+AFNetworking.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/UIWebView+AFNetworking.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/UIRefreshControl+AFNetworking.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/UIKit+AFNetworking.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/UIImageView+AFNetworking.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/UIImage+AFNetworking.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/UIButton+AFNetworking.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFNetworkActivityIndicatorManager.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFImageDownloader.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFAutoPurgingImageCache.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFHTTPSessionManager.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFURLSessionManager.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFNetworkReachabilityManager.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFSecurityPolicy.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFURLResponseSerialization.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFURLRequestSerialization.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFNetworking.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Headers/AFNetworking-umbrella.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/AFNetworking.framework/Modules/module.modulemap"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/BDBOAuth1Manager.framework/Headers/NSString+BDBOAuth1Manager.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/BDBOAuth1Manager.framework/Headers/NSDictionary+BDBOAuth1Manager.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/BDBOAuth1Manager.framework/Headers/BDBOAuth1SessionManager.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/BDBOAuth1Manager.framework/Headers/BDBOAuth1RequestSerializer.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/BDBOAuth1Manager.framework/Headers/BDBOAuth1Manager-umbrella.h"
+- "/Users/Uriana/Projects/iOS/TwitterOAuth/build/Debug-iphonesimulator/BDBOAuth1Manager.framework/Modules/module.modulemap"
+interface-hash: "757858c1c4e99ecd126f552a365dc952"
