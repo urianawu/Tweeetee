@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 class TweetsViewController: UIViewController {
 
     var tweets: [Tweet]?
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +21,11 @@ class TweetsViewController: UIViewController {
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
             self.tweets = tweets
         }
+        
+        menuButton.target = self.revealViewController()
+        menuButton.action = Selector("revealToggle:")
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,9 +33,6 @@ class TweetsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onLogout(sender: AnyObject) {
-        User.currentUser?.logout()
-    }
 
     /*
     // MARK: - Navigation

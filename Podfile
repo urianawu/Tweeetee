@@ -6,6 +6,7 @@ use_frameworks!
 target 'TwitterOAuth' do
 pod "AFNetworking"
 pod "BDBOAuth1Manager"
+pod "SWRevealViewController"
 
 end
 
