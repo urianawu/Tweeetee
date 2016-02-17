@@ -10,6 +10,9 @@ import UIKit
 
 class SidebarMenuController: UITableViewController {
 
+    @IBOutlet weak var homeCell: UITableViewCell!
+    @IBOutlet weak var mentionsCell: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +28,7 @@ class SidebarMenuController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
     // MARK: - Table view data source
     @IBAction func onLogoutButton(sender: AnyObject) {
         User.currentUser?.logout()

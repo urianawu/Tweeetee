@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDU-DQ-eQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2724" y="401"/>
+            <point key="canvasLocation" x="3642" y="401"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="T3g-C9-WFM">
@@ -74,7 +74,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="be7-c6-TaK" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="QFM-um-J0p"/>
+                        <segue destination="WbE-3W-dtM" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="QFM-um-J0p"/>
                         <segue destination="h9B-wA-rfo" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="BSg-hW-FCO"/>
                     </connections>
                 </viewController>
@@ -100,39 +100,39 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yea-E9-Scg">
-                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                    <state key="normal" title="Tweets"/>
-                                                    <connections>
-                                                        <segue destination="h9B-wA-rfo" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="OC7-Un-exV"/>
-                                                    </connections>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fog-dr-s54">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Yea-E9-Scg" firstAttribute="top" secondItem="guI-wL-NM0" secondAttribute="top" constant="8" id="8HV-E9-1Xc"/>
-                                                <constraint firstItem="Yea-E9-Scg" firstAttribute="leading" secondItem="guI-wL-NM0" secondAttribute="leading" constant="8" id="Kkc-zH-QcG">
-                                                    <variation key="widthClass=compact" constant="22"/>
-                                                </constraint>
+                                                <constraint firstItem="Fog-dr-s54" firstAttribute="leading" secondItem="guI-wL-NM0" secondAttribute="leading" constant="25" id="WoK-LS-FCA"/>
+                                                <constraint firstItem="Fog-dr-s54" firstAttribute="centerY" secondItem="guI-wL-NM0" secondAttribute="centerY" id="q9A-pM-iOg"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="Yea-E9-Scg"/>
+                                                    <exclude reference="Fog-dr-s54"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="8HV-E9-1Xc"/>
-                                                    <exclude reference="Kkc-zH-QcG"/>
+                                                    <exclude reference="WoK-LS-FCA"/>
+                                                    <exclude reference="q9A-pM-iOg"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="Yea-E9-Scg"/>
+                                                    <include reference="Fog-dr-s54"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="8HV-E9-1Xc"/>
-                                                    <include reference="Kkc-zH-QcG"/>
+                                                    <include reference="WoK-LS-FCA"/>
+                                                    <include reference="q9A-pM-iOg"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="h9B-wA-rfo" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="zlf-c7-RHz"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="UYg-9n-FZU">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -141,31 +141,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6O-dH-YfS">
-                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                    <state key="normal" title="Mentions"/>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4L-oy-tU0">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="b6O-dH-YfS" firstAttribute="top" secondItem="b4y-oo-BCQ" secondAttribute="top" constant="8" id="Dg6-Me-tFS"/>
-                                                <constraint firstItem="b6O-dH-YfS" firstAttribute="leading" secondItem="b4y-oo-BCQ" secondAttribute="leading" constant="22" id="KID-yk-WfS"/>
+                                                <constraint firstItem="W4L-oy-tU0" firstAttribute="centerY" secondItem="b4y-oo-BCQ" secondAttribute="centerY" id="5NC-84-Vs1"/>
+                                                <constraint firstItem="W4L-oy-tU0" firstAttribute="leading" secondItem="b4y-oo-BCQ" secondAttribute="leading" constant="25" id="mQk-Jz-BRH"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="b6O-dH-YfS"/>
+                                                    <exclude reference="W4L-oy-tU0"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="Dg6-Me-tFS"/>
-                                                    <exclude reference="KID-yk-WfS"/>
+                                                    <exclude reference="5NC-84-Vs1"/>
+                                                    <exclude reference="mQk-Jz-BRH"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="b6O-dH-YfS"/>
+                                                    <include reference="W4L-oy-tU0"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="Dg6-Me-tFS"/>
-                                                    <include reference="KID-yk-WfS"/>
+                                                    <include reference="5NC-84-Vs1"/>
+                                                    <include reference="mQk-Jz-BRH"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -229,11 +231,18 @@
                             <outlet property="delegate" destination="be7-c6-TaK" id="ePE-0t-e2F"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="iEp-fY-YMO">
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="Fid-jy-13h"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="homeCell" destination="5jk-Np-XzS" id="pdw-uw-ybp"/>
+                        <outlet property="mentionsCell" destination="b4y-oo-BCQ" id="dkf-e7-vf5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVu-zG-1LV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1423.5" y="-30"/>
+            <point key="canvasLocation" x="2341.5" y="-30"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UQm-pt-VN4">
@@ -252,10 +261,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjr-Yk-8Q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2076" y="401"/>
+            <point key="canvasLocation" x="2994" y="401"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kNh-NO-N0v">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WbE-3W-dtM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lyc-fV-3uA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="be7-c6-TaK" kind="relationship" relationship="rootViewController" id="hjk-Gj-OGn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmU-lS-at0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1423.5" y="-30"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OC7-Un-exV"/>
+        <segue reference="zlf-c7-RHz"/>
     </inferredMetricsTieBreakers>
 </document>
