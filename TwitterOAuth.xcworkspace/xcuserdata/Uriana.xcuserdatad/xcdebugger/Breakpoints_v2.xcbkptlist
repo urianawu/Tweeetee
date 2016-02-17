@@ -9,46 +9,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TwitterOAuth/AppDelegate.swift"
-            timestampString = "477267622.680055"
+            filePath = "TwitterOAuth/User.swift"
+            timestampString = "477371756.789342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "application(_:openURL:sourceApplication:annotation:)"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "User"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterOAuth/AppDelegate.swift"
+            timestampString = "477371756.789342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TwitterOAuth.AppDelegate.(application (TwitterOAuth.AppDelegate) -&gt; (__ObjC.UIApplication, openURL : __ObjC.NSURL, sourceApplication : Swift.Optional&lt;Swift.String&gt;, annotation : Swift.AnyObject) -&gt; Swift.Bool).(closure #1)"
-                  moduleName = "TwitterOAuth"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Uriana/Projects/iOS/TwitterOAuth/TwitterOAuth/AppDelegate.swift"
-                  timestampString = "477267622.69715"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "407">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TwitterOAuth.AppDelegate.(application (TwitterOAuth.AppDelegate) -&gt; (__ObjC.UIApplication, openURL : __ObjC.NSURL, sourceApplication : Swift.Optional&lt;Swift.String&gt;, annotation : Swift.AnyObject) -&gt; Swift.Bool).(closure #1).(closure #1)"
-                  moduleName = "TwitterOAuth"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Uriana/Projects/iOS/TwitterOAuth/TwitterOAuth/AppDelegate.swift"
-                  timestampString = "477267622.69814"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "26">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
