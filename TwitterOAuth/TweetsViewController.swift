@@ -28,6 +28,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
 
+
+        //tableView.backgroundColor = UIColor.flatSkyBlueColor()
+
         
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
             self.tweets = tweets!
@@ -68,10 +71,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
-        
+        cell.contentView.layer.masksToBounds = false;
+
         return cell
     }
-
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if (!isMoreDataLoading) {
             // Calculate the position of one screen length before the bottom of the results

@@ -18,6 +18,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var replyButton: UIButton!
     
     var retweeted = false
     var liked = false
@@ -26,7 +27,9 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
-            authorImageView.setImageWithURL((tweet.user?.profileImageUrl)!)
+            if let url = tweet.user?.profileImageUrl {
+                authorImageView.setImageWithURL(url)
+            }
             authorNameLabel.text = tweet.user?.name
             authorScreennameLabel.text = tweet.user?.screenName
             tweetLabel.text = tweet.text
@@ -48,8 +51,9 @@ class TweetCell: UITableViewCell {
         // Initialization code
         authorImageView.layer.cornerRadius = 4
         authorImageView.clipsToBounds = true
+        
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         super.selectionStyle = .None
@@ -110,4 +114,5 @@ class TweetCell: UITableViewCell {
         }
         
     }
+    
 }

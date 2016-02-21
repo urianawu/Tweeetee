@@ -51,6 +51,30 @@ class TwitterClient: BDBOAuth1SessionManager {
         
     }
     
+    func searchTweetsWithParams(term: String!, params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+        
+        self.GET("https://api.twitter.com/1.1/search/tweets.json?q=" + term, parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            let statuses = response!["statuses"]
+            let tweets = Tweet.tweetsWithArray(statuses as! [NSDictionary])
+            completion(tweets: tweets, error: nil)
+            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("error")
+                completion(tweets: nil, error: error)
+        }
+    }
+
+    func searchUsersWithParams(term: String!, params: NSDictionary?, completion: (users: [User]?, error: NSError?) -> ()) {
+    
+    
+        self.GET("https://api.twitter.com/1.1/users/search.json?q=" + term, parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            let users = User.usersWithArray(response as! [NSDictionary])
+            completion(users: users, error: nil)
+            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("error")
+                completion(users: nil, error: error)
+        }
+    }
+
     func retweet(id: String!, completion: (error: NSError?) ->()) {
         let url = "https://api.twitter.com/1.1/statuses/retweet/" + id + ".json"
         self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
