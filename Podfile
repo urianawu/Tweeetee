@@ -7,6 +7,6 @@ target 'TwitterOAuth' do
 pod "AFNetworking"
 pod "BDBOAuth1Manager"
 pod "SWRevealViewController"
-
+pod "ChameleonFramework/Swift"
 end
 

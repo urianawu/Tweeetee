@@ -50,6 +50,46 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
         
     }
+    
+    func retweet(id: Int!, completion: (error: NSError?) ->()) {
+        let url = "https://api.twitter.com/1.1/statuses/retweet/" + String(id) + ".json"
+        self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                completion( error: nil)
+            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("retweeting error")
+                completion(error: error)
+        }
+    }
+    
+    func unretweet(id: Int!, completion: (error: NSError?) ->()) {
+        let url = "https://api.twitter.com/1.1/statuses/unretweet/" + String(id) + ".json"
+        self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                completion( error: nil)
+            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("unretweeting error")
+                completion(error: error)
+
+        }
+    }
+
+    func like(id: Int!, completion: (error: NSError?) ->()) {
+        let url = "https://api.twitter.com/1.1/favorites/create.json?id=" + String(id)
+        self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                completion(error: nil)
+            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                completion(error: error)
+        }
+    }
+    
+    func unlike(id: Int!, completion: (error: NSError?) ->()) {
+        let url = "https://api.twitter.com/1.1/favorites/destroy.json?id=" + String(id)
+        self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                completion(error: nil)
+            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                completion(error: error)
+        }
+    }
+    
     func openURL(url: NSURL) {
         fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuth1Credential(queryString: url.query), success: { (accessToken: BDBOAuth1Credential!) -> Void in
             print("got access token")

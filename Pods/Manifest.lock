@@ -16,16 +16,21 @@ PODS:
     - AFNetworking/NSURLSession
   - BDBOAuth1Manager (2.0.0):
     - AFNetworking/NSURLSession (~> 3.0.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
   - AFNetworking
   - BDBOAuth1Manager
+  - ChameleonFramework/Swift
   - SWRevealViewController
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   BDBOAuth1Manager: 92d17d06f8a648602962304cd2f35ae7394fa001
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
 COCOAPODS: 0.39.0
