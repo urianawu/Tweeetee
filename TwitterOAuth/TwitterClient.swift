@@ -51,8 +51,8 @@ class TwitterClient: BDBOAuth1SessionManager {
         
     }
     
-    func retweet(id: Int!, completion: (error: NSError?) ->()) {
-        let url = "https://api.twitter.com/1.1/statuses/retweet/" + String(id) + ".json"
+    func retweet(id: String!, completion: (error: NSError?) ->()) {
+        let url = "https://api.twitter.com/1.1/statuses/retweet/" + id + ".json"
         self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 completion( error: nil)
             }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -61,19 +61,19 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
-    func unretweet(id: Int!, completion: (error: NSError?) ->()) {
+    func unretweet(id: String!, completion: (error: NSError?) ->()) {
+        
         let url = "https://api.twitter.com/1.1/statuses/unretweet/" + String(id) + ".json"
         self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 completion( error: nil)
             }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
                 print("unretweeting error")
                 completion(error: error)
-
         }
     }
 
-    func like(id: Int!, completion: (error: NSError?) ->()) {
-        let url = "https://api.twitter.com/1.1/favorites/create.json?id=" + String(id)
+    func like(id: String!, completion: (error: NSError?) ->()) {
+        let url = "https://api.twitter.com/1.1/favorites/create.json?id=" + id
         self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 completion(error: nil)
             }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -81,8 +81,8 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
-    func unlike(id: Int!, completion: (error: NSError?) ->()) {
-        let url = "https://api.twitter.com/1.1/favorites/destroy.json?id=" + String(id)
+    func unlike(id: String!, completion: (error: NSError?) ->()) {
+        let url = "https://api.twitter.com/1.1/favorites/destroy.json?id=" + id
         self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 completion(error: nil)
             }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in

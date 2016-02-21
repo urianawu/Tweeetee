@@ -14,6 +14,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 
     var tweets = [Tweet]()
     var isMoreDataLoading = false
+    var loadingMoreView:InfiniteScrollActivityView?
+    var loadingCount = 20
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
@@ -36,6 +38,22 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         menuButton.action = Selector("revealToggle:")
         
         //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        // loading
+        // Set up Infinite Scroll loading indicator
+        let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.hidden = true
+        tableView.addSubview(loadingMoreView!)
+        
+        var insets = tableView.contentInset;
+        insets.bottom += InfiniteScrollActivityView.defaultHeight;
+        tableView.contentInset = insets
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,12 +82,41 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
                 isMoreDataLoading = true
                 
-                // ... Code to load more results ...
+                // Update position of loadingMoreView, and start loading indicator
+                let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
                 
+                // Code to load more results
+                loadMoreTweets()
             }
         }
     }
     
+    func loadMoreTweets () {
+        loadingCount += 20
+        let param = ["count": loadingCount]
+        TwitterClient.sharedInstance.homeTimelineWithParams(param) { (tweets, error) -> () in
+            self.tweets = tweets!
+            // Update flag
+            self.isMoreDataLoading = false
+            
+            // Stop the loading indicator
+            self.loadingMoreView!.stopAnimating()
+            self.tableView.reloadData()
+        }
+
+    }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        loadingCount = 20
+
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+            self.tweets = tweets!
+            self.tableView.reloadData()
+            refreshControl.endRefreshing()
+        }
+    }
     /*
     // MARK: - Navigation
 
