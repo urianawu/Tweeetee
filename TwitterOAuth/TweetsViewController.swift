@@ -33,8 +33,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 
         
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
-            self.tweets = tweets!
-            self.tableView.reloadData()
+            if tweets != nil {
+                self.tweets = tweets!
+                self.tableView.reloadData()
+            }
         }
         
         menuButton.target = self.revealViewController()
@@ -71,9 +73,15 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
-        cell.contentView.layer.masksToBounds = false;
-
+        cell.contentView.layer.masksToBounds = false
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
+        //Add the recognizer to your view.
+        cell.authorImageView.addGestureRecognizer(tapRecognizer)
         return cell
+    }
+    
+    func imageTapped(img: AnyObject){
+        self.performSegueWithIdentifier("toUserProfileSegue", sender: img)
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -101,6 +109,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         loadingCount += 20
         let param = ["count": loadingCount]
         TwitterClient.sharedInstance.homeTimelineWithParams(param) { (tweets, error) -> () in
+            if tweets != nil {
             self.tweets = tweets!
             // Update flag
             self.isMoreDataLoading = false
@@ -108,6 +117,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             // Stop the loading indicator
             self.loadingMoreView!.stopAnimating()
             self.tableView.reloadData()
+            }
         }
 
     }
@@ -116,9 +126,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         loadingCount = 20
 
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
-            self.tweets = tweets!
-            self.tableView.reloadData()
+            if tweets != nil {
+                self.tweets = tweets!
+                self.tableView.reloadData()
             refreshControl.endRefreshing()
+            }
         }
     }
     /*
