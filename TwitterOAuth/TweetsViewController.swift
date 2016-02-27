@@ -12,6 +12,7 @@ import AFNetworking
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
+    var refreshingNeeded = false
     var tweets = [Tweet]()
     var isMoreDataLoading = false
     var loadingMoreView:InfiniteScrollActivityView?
@@ -133,14 +134,33 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
     }
-    /*
+    
+    @IBAction func oncloseCompose(segue: UIStoryboardSegue){
+    }
+    
+    @IBAction func onFinishCompose(segue: UIStoryboardSegue) {
+        if let vc = segue.sourceViewController as? ComposeViewController{
+        TwitterClient.sharedInstance.tweet(vc.tweetView.text, params: nil, completion: { (error) -> () in
+            TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+                if tweets != nil {
+                    self.tweets = tweets!
+                    self.tableView.reloadData()
+                }
+            }
+        })
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let composeViewController = segue.destinationViewController as? ComposeViewController {
+            composeViewController.profileImageURL = (User.currentUser?.profileImageUrl)!
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

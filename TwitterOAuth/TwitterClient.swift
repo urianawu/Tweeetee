@@ -75,6 +75,23 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
 
+    func tweet(status: String!, params: NSDictionary?, completion: (error: NSError?) ->()) {
+        let url = "https://api.twitter.com/1.1/statuses/update.json"
+        var paramsWithStatus = ["status": status]
+        if params != nil {
+            for (id, value) in params! {
+                paramsWithStatus[id as! String] = value as! String
+            }
+        }
+        self.POST(url, parameters: paramsWithStatus as NSDictionary, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            completion( error: nil)
+            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("tweeting error")
+                completion(error: error)
+        }
+    }
+
+    
     func retweet(id: String!, completion: (error: NSError?) ->()) {
         let url = "https://api.twitter.com/1.1/statuses/retweet/" + id + ".json"
         self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
