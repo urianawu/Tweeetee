@@ -28,10 +28,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
-
-
-        //tableView.backgroundColor = UIColor.flatSkyBlueColor()
-
         
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
             if tweets != nil {

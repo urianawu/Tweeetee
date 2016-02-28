@@ -16,6 +16,7 @@ class User: NSObject {
     var name: String?
     var screenName: String?
     var profileImageUrl: NSURL?
+    var profileEnlargedImageUrl: NSURL?
     var profileBackgroundUrl: NSURL?
     var tagline: String?
     var medias: [NSURL]?
@@ -32,6 +33,8 @@ class User: NSObject {
         name = dictionary["name"] as? String
         screenName = "@" + (dictionary["screen_name"] as? String)!
         profileImageUrl = NSURL(string: (dictionary["profile_image_url_https"] as! String))
+        profileEnlargedImageUrl = NSURL(string: profileImageUrl!.absoluteString.stringByReplacingOccurrencesOfString("_normal", withString: ""))
+        
         profileBackgroundUrl = NSURL(string: (dictionary["profile_background_image_url_https"] as! String))
         tagline = dictionary["description"] as? String
         followersCount = dictionary["followers_count"] as? Int

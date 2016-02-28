@@ -28,8 +28,8 @@ class ProfileViewController: UITableViewController, UICollectionViewDataSource, 
         let tableHeaderView = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), kHeaderHeight));
 
         headerInfo = ProfileHeaderView(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(self.view.frame), height: kHeaderHeight))
-        headerInfo.profilePicView.setImageWithURL(user!.profileImageUrl!)
-        print(user?.profileImageUrl)
+        
+        headerInfo.profilePicView.setImageWithURL(user!.profileEnlargedImageUrl!)
         headerInfo.nameLabel.text = user!.name
         headerInfo.screenNameLabel.text = user!.screenName
         headerInfo.descriptionLabel.text = user!.tagline

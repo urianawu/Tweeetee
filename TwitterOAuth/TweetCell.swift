@@ -27,7 +27,7 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
-            if let url = tweet.user?.profileImageUrl {
+            if let url = tweet.user?.profileEnlargedImageUrl {
                 authorImageView.setImageWithURL(url)
             }
             authorNameLabel.text = tweet.user?.name
