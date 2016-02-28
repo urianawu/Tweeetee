@@ -42,11 +42,14 @@ class SidebarMenuController: UITableViewController {
             profileView.layer.borderColor = UIColor(white: 0.7, alpha: 0.8).CGColor
             profileView.layer.borderWidth = 1
             profileView.setImageWithURL((User.currentUser?.profileImageUrl)!)
+            profileView.userInteractionEnabled = true
+            let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
+            profileView.addGestureRecognizer(tapRecognizer)
             
             let userNameLabel = UILabel(frame: CGRect(x: 50, y: 10, width: 300, height: 30))
             userNameLabel.clipsToBounds = true
             userNameLabel.text = User.currentUser?.screenName
-            userNameLabel.textColor = UIColor(red: 0.3, green: 0.4, blue: 0.8, alpha: 0.9)
+            userNameLabel.textColor = UIColor.flatGrayColorDark()
             userNameLabel.font = UIFont.boldSystemFontOfSize(12)
             headerView.addSubview(userNameLabel)
             headerView.addSubview(profileView)
@@ -63,7 +66,11 @@ class SidebarMenuController: UITableViewController {
             return 5
         }
     }
-
+    
+    func imageTapped(img: AnyObject){
+        self.performSegueWithIdentifier("toUserProfileSegue", sender: img)
+    }
+    
 /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
@@ -109,14 +116,16 @@ class SidebarMenuController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toUserProfileSegue" {
+            let navViewController = segue.destinationViewController as! UINavigationController
+            let profileViewController = navViewController.topViewController as! ProfileViewController
+            profileViewController.user = User.currentUser
+
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

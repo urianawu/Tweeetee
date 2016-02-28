@@ -39,6 +39,52 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    func userProfile(screenName: String!, completion: (user: User?, error: NSError?) -> ()) {
+        self.GET("1.1/users/show.json?screen_name="+String(screenName.characters.dropFirst()).lowercaseString, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            let user = User(dictionary: response as! NSDictionary)
+            completion(user: user, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("error")
+                completion(user: nil, error: error)
+        })
+        
+    }
+
+    func userProfileMedias(screenName: String!, completion: (medias: [NSURL]?, error: NSError?) -> ()) {
+        self.GET("1.1/search/tweets.json?q=from%3A"+String(screenName.characters.dropFirst()).lowercaseString+"%20filter%3Aimages&include_entities=true&count=16", parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            var medias = [NSURL]()
+            if let tweets = response!["statuses"] as? [NSDictionary] {
+            for tweet in tweets {
+                if let media = (tweet["entities"])!["media"] as? [NSDictionary] {
+                    for image in media {
+                        medias.append(NSURL(string: image["media_url_https"] as! String)!)
+                    }
+                }
+                
+            }
+            }
+            completion(medias: medias, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("error")
+                completion(medias: nil, error: error)
+        })
+
+    }
+    
+    func userTimelineWithParams(screenName: String!, params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+        
+        self.GET("1.1/statuses/user_timeline.json?screen_name="+String(screenName.characters.dropFirst()).lowercaseString, parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            completion(tweets: tweets, error: nil)
+            
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("error")
+                completion(tweets: nil, error: error)
+        })
+        
+    }
+
+    
     func homeTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         self.GET("1.1/statuses/home_timeline.json", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
             //print("user: \(response)")

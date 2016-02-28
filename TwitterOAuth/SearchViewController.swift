@@ -70,6 +70,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SearchUserCell", forIndexPath: indexPath) as! SearchUserCell
+        performSegueWithIdentifier("toUserProfileSegue", sender: cell)
+    }
+    
     func searchBarTextDidBeginEditing(searchBar: UISearchBar)  {
         tableView.hidden = true
         collectionView.hidden = true

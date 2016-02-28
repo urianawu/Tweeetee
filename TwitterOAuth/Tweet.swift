@@ -16,6 +16,7 @@ class Tweet: NSObject {
     var createdAtString: String?
     var createdAt: NSDate?
     var timelineString: String?
+    var mediaURL: NSURL?
     
     var retweetCount: Int?
     var retweeted: Bool?
@@ -27,6 +28,9 @@ class Tweet: NSObject {
         id = dictionary["id_str"] as? String
         user = User(dictionary: dictionary["user"] as! NSDictionary)
         text = dictionary["text"] as? String
+        if let media = dictionary["media"] {
+            mediaURL = media["media_url_https"] as? NSURL
+        }
         createdAtString = dictionary["created_at"] as? String
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"

@@ -16,7 +16,15 @@ class User: NSObject {
     var name: String?
     var screenName: String?
     var profileImageUrl: NSURL?
+    var profileBackgroundUrl: NSURL?
     var tagline: String?
+    var medias: [NSURL]?
+    
+    var followingCount: Int? //friends_count
+    var followersCount: Int? //followers_count
+    var tweetsCount: Int? //statuses_count
+    var following: Bool? //following
+    
     var dictionary: NSDictionary
     
     init(dictionary: NSDictionary) {
@@ -24,8 +32,12 @@ class User: NSObject {
         name = dictionary["name"] as? String
         screenName = "@" + (dictionary["screen_name"] as? String)!
         profileImageUrl = NSURL(string: (dictionary["profile_image_url_https"] as! String))
+        profileBackgroundUrl = NSURL(string: (dictionary["profile_background_image_url_https"] as! String))
         tagline = dictionary["description"] as? String
-        
+        followersCount = dictionary["followers_count"] as? Int
+        followingCount = dictionary["friends_count"] as? Int
+        tweetsCount = dictionary["statuses_count"] as? Int
+        following = dictionary["following"] as? Bool
     }
     
     class func usersWithArray(array: [NSDictionary]) -> [User] {

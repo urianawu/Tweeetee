@@ -75,15 +75,14 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
         cell.contentView.layer.masksToBounds = false
+        
         let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
         //Add the recognizer to your view.
         cell.authorImageView.addGestureRecognizer(tapRecognizer)
+        
         return cell
     }
     
-    func imageTapped(img: AnyObject){
-        self.performSegueWithIdentifier("toUserProfileSegue", sender: img)
-    }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if (!isMoreDataLoading) {
@@ -135,6 +134,22 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    func imageTapped(sender: AnyObject){
+        let tappedView = sender.view as? UIImageView
+        let cell = tappedView?.superview?.superview as! TweetCell
+        let selectedIndex = self.tableView.indexPathForCell(cell)
+        let screenName = tweets[(selectedIndex?.row)!].user!.screenName
+        
+
+        TwitterClient.sharedInstance.userProfile(screenName, completion: { (user, error) -> () in
+            TwitterClient.sharedInstance.userProfileMedias(screenName) { (medias, error) -> () in
+                user?.medias = medias
+                self.performSegueWithIdentifier("toUserProfileSegue", sender: user)
+            }
+        })
+
+    }
+    
     @IBAction func oncloseCompose(segue: UIStoryboardSegue){
     }
     
@@ -158,8 +173,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         if let composeViewController = segue.destinationViewController as? ComposeViewController {
             composeViewController.profileImageURL = (User.currentUser?.profileImageUrl)!
         }
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toUserProfileSegue" {
+            let navViewController = segue.destinationViewController as! UINavigationController
+            let profileViewController = navViewController.topViewController as! ProfileViewController
+            profileViewController.user = sender as? User
+        }
     }
     
 

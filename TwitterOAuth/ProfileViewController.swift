@@ -15,23 +15,36 @@ class ProfileViewController: UITableViewController, UICollectionViewDataSource, 
     var rowText = [String]()
     var headerInfo = ProfileHeaderView()
     
+    var user: User?
+    var screenWidth: CGFloat!
+    var screenHeight: CGFloat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
         let tableHeaderView = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), kHeaderHeight));
 
         headerInfo = ProfileHeaderView(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(self.view.frame), height: kHeaderHeight))
-
+        headerInfo.profilePicView.setImageWithURL(user!.profileImageUrl!)
+        print(user?.profileImageUrl)
+        headerInfo.nameLabel.text = user!.name
+        headerInfo.screenNameLabel.text = user!.screenName
+        headerInfo.descriptionLabel.text = user!.tagline
+        headerInfo.backgroundView.setImageWithURL(user!.profileImageUrl!)
+        
         tableHeaderView.addSubview(headerInfo)
         self.tableView.backgroundColor = UIColor.whiteColor()
         self.tableView.tableHeaderView = tableHeaderView
 
         //row text
-        rowText = ["Tweets", "Mentions", "", "Following", "Followers", "Likes"]
+        rowText = [String(user!.tweetsCount!)+" Tweets", "Mentions", "", "Following "+String(user!.followingCount!), String(user!.followersCount!)+" Followers", "Likes"]
         
     }
 
+    
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         let yPos: CGFloat = -scrollView.contentOffset.y
         
@@ -64,12 +77,14 @@ class ProfileViewController: UITableViewController, UICollectionViewDataSource, 
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 16
+        return (user?.medias?.count)!
+        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath)
-        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfileMediaCell", forIndexPath: indexPath) as! ProfileMediaCell
+        cell.mediaView.setImageWithURL(user!.medias![indexPath.row])
+        cell.layer.borderWidth = 0.0
         return cell
     }
 
