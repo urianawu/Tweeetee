@@ -70,6 +70,29 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
 
     }
+    func updateTweet(id: String!, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        self.GET("1.1/statuses/show.json?id="+id, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            completion(tweet: tweet, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("getting retweets detail error")
+                completion(tweet: nil, error: error)
+        })
+        
+    }
+
+    func retweetsOfTweet(id: String!, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+        let params = ["count": 10]
+        self.GET("1.1/statuses/retweets.json?id="+id, parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            completion(tweets: tweets, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("getting retweets detail error")
+                completion(tweets: nil, error: error)
+        })
+        
+    }
+
     
     func userTimelineWithParams(screenName: String!, params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         
@@ -138,8 +161,9 @@ class TwitterClient: BDBOAuth1SessionManager {
 
     
     func retweet(id: String!, completion: (error: NSError?) ->()) {
-        let url = "https://api.twitter.com/1.1/statuses/retweet/" + id + ".json"
+        let url = "1.1/statuses/retweet/" + id + ".json"
         self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("retweet")
                 completion( error: nil)
             }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
                 print("retweeting error")
@@ -149,8 +173,9 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func unretweet(id: String!, completion: (error: NSError?) ->()) {
         
-        let url = "https://api.twitter.com/1.1/statuses/unretweet/" + String(id) + ".json"
+        let url = "1.1/statuses/unretweet/" + String(id) + ".json"
         self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("unretweet")
                 completion( error: nil)
             }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
                 print("unretweeting error")
@@ -159,8 +184,9 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
 
     func like(id: String!, completion: (error: NSError?) ->()) {
-        let url = "https://api.twitter.com/1.1/favorites/create.json?id=" + id
+        let url = "1.1/favorites/create.json?id=" + id
         self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("liked")
                 completion(error: nil)
             }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
                 completion(error: error)
@@ -168,8 +194,9 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     func unlike(id: String!, completion: (error: NSError?) ->()) {
-        let url = "https://api.twitter.com/1.1/favorites/destroy.json?id=" + id
+        let url = "1.1/favorites/destroy.json?id=" + id
         self.POST(url, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("unliked")
                 completion(error: nil)
             }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
                 completion(error: error)

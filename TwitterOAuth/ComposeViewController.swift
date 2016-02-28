@@ -15,17 +15,24 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     let limitLength = 140
     var profileImageURL = NSURL()
+    var replyUser = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         profileView.setImageWithURL(profileImageURL)
         
         tweetView.delegate = self
-        tweetView.text = "What's happening?"
-        tweetView.textColor = UIColor.lightGrayColor()
+        if (replyUser.isEmpty) {
+            tweetView.text = "What's happening?"
+            tweetView.textColor = UIColor.lightGrayColor()
+            tweetView.selectedTextRange = tweetView.textRangeFromPosition(tweetView.beginningOfDocument, toPosition: tweetView.beginningOfDocument)
+        }else {
+            tweetView.text = replyUser+" "
+            tweetView.textColor = UIColor.blackColor()
+        }
 
         tweetView.becomeFirstResponder()
-        tweetView.selectedTextRange = tweetView.textRangeFromPosition(tweetView.beginningOfDocument, toPosition: tweetView.beginningOfDocument)
+        
 
     }
 

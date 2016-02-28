@@ -12,11 +12,11 @@ class DetailTweetViewController: UITableViewController {
     @IBOutlet weak var replyField: UITextField!
     @IBOutlet var replyBar: UIToolbar!
     var tweet: Tweet!
+    var retweets: [Tweet]!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +55,7 @@ class DetailTweetViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return retweets.count+1
     }
 
     
@@ -65,7 +65,8 @@ class DetailTweetViewController: UITableViewController {
             cell.tweet = tweet
             return cell
         }else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("ReplyCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("RetweetCell", forIndexPath: indexPath) as! RetweetCell
+            cell.tweet = retweets[indexPath.row - 1]
             return cell
         }
     }

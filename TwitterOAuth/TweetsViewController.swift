@@ -69,6 +69,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
+//        cell.tweet.liked = cell.liked
+//        cell.tweet.retweeted = cell.retweeted
+//        cell.tweet.likeCount = cell.likeCount
         cell.contentView.layer.masksToBounds = false
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
@@ -78,6 +81,17 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let tweet = tweets[indexPath.row]
+        TwitterClient.sharedInstance.updateTweet(tweet.id) { (tweet, error) -> () in
+            self.tweets[indexPath.row] = tweet!
+            TwitterClient.sharedInstance.retweetsOfTweet(tweet!.id) { (tweets, error) -> () in
+                self.performSegueWithIdentifier("toDetailSegue", sender: tweets)
+            }
+        }
+        
+        
+    }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if (!isMoreDataLoading) {
@@ -167,15 +181,25 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let composeViewController = segue.destinationViewController as? ComposeViewController {
             composeViewController.profileImageURL = (User.currentUser?.profileImageUrl)!
+            if let _ = sender as? UIBarButtonItem {
+                print("tweeting...")
+            }else {
+                if let cell = sender!.superview!!.superview as? TweetCell {
+                composeViewController.replyUser = (cell.tweet.user?.screenName)!
+                }
+            }
         }
         if segue.identifier == "toUserProfileSegue" {
             let navViewController = segue.destinationViewController as! UINavigationController
             let profileViewController = navViewController.topViewController as! ProfileViewController
             profileViewController.user = sender as? User
         }
+        
         if let detailTweetViewController = segue.destinationViewController as? DetailTweetViewController {
             detailTweetViewController.tweet = tweets[(tableView.indexPathForSelectedRow?.row)!]
+            detailTweetViewController.retweets = sender as! [Tweet]
         }
+
     }
     
 

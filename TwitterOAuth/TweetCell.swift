@@ -61,14 +61,14 @@ class TweetCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func onLikeButton(sender: AnyObject) {
-        if (!liked) {
+        if (liked) {
             TwitterClient.sharedInstance.like(tweet.id) { (error) -> () in
-                self.likeCount! += 1
+                self.likeCount! -= 1
                 self.liked = !self.liked
             }
         }else {
             TwitterClient.sharedInstance.unlike(tweet.id) { (error) -> () in
-                self.likeCount! -= 1
+                self.likeCount! += 1
                 self.liked = !self.liked
             }
             
@@ -77,14 +77,14 @@ class TweetCell: UITableViewCell {
     }
     
     @IBAction func onRetweetButton(sender: AnyObject) {
-        if (!retweeted) {
+        if (retweeted) {
             TwitterClient.sharedInstance.retweet(tweet.id) { (error) -> () in
-                self.retweetCount! += 1
+                self.retweetCount! -= 1
                 self.retweeted = !self.retweeted
             }
         }else {
             TwitterClient.sharedInstance.unretweet(tweet.id) { (error) -> () in
-                self.retweetCount! -= 1
+                self.retweetCount! += 1
                 self.retweeted = !self.retweeted
             }
 
