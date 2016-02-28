@@ -68,8 +68,17 @@ class SidebarMenuController: UITableViewController {
     }
     
     func imageTapped(img: AnyObject){
-        self.performSegueWithIdentifier("toUserProfileSegue", sender: img)
+        TwitterClient.sharedInstance.userProfile(User.currentUser?.screenName, completion: { (user, error) -> () in
+            TwitterClient.sharedInstance.userProfileMedias(User.currentUser?.screenName) { (medias, error) -> () in
+                user?.medias = medias
+                
+        self.performSegueWithIdentifier("toUserProfileSegue", sender: user)
+            
+            }
+        })
+        
     }
+
     
 /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -120,7 +129,7 @@ class SidebarMenuController: UITableViewController {
         if segue.identifier == "toUserProfileSegue" {
             let navViewController = segue.destinationViewController as! UINavigationController
             let profileViewController = navViewController.topViewController as! ProfileViewController
-            profileViewController.user = User.currentUser
+            profileViewController.user = sender as? User
 
         }
         // Get the new view controller using segue.destinationViewController.
