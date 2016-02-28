@@ -28,7 +28,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
-        
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
             if tweets != nil {
                 self.tweets = tweets!
@@ -173,6 +172,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             let navViewController = segue.destinationViewController as! UINavigationController
             let profileViewController = navViewController.topViewController as! ProfileViewController
             profileViewController.user = sender as? User
+        }
+        if let detailTweetViewController = segue.destinationViewController as? DetailTweetViewController {
+            detailTweetViewController.tweet = tweets[(tableView.indexPathForSelectedRow?.row)!]
         }
     }
     

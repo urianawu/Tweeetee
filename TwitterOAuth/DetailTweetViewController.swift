@@ -9,15 +9,14 @@
 import UIKit
 
 class DetailTweetViewController: UITableViewController {
+    @IBOutlet weak var replyField: UITextField!
+    @IBOutlet var replyBar: UIToolbar!
     var tweet: Tweet!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 100
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +24,28 @@ class DetailTweetViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    override var inputAccessoryView: UIView{
+        get{
+            return self.replyBar
+        }
+    }
+    @IBAction func onBeginReply(sender: AnyObject) {
+        replyField.text = (tweet.user?.screenName)!+" "
+    }
+    
+    @IBAction func onReplyButton(sender: AnyObject) {
+        //reply tweet
+        let params = ["in_reply_to_status_id":tweet.id!]
+        TwitterClient.sharedInstance.tweet(replyField.text, params: params) { (error) -> () in
+            
+        }
+        self.replyField.text = ""
+        self.replyField.resignFirstResponder()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -40,10 +61,11 @@ class DetailTweetViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("TweetDetailCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
+            cell.tweet = tweet
             return cell
         }else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("ReCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("ReplyCell", forIndexPath: indexPath)
             return cell
         }
     }

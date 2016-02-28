@@ -16,7 +16,7 @@ class SearchUserCell: UICollectionViewCell {
     
     var user: User! {
         didSet {
-            profileView.setImageWithURL(user!.profileImageUrl!)
+            profileView.setImageWithURL(user!.profileEnlargedImageUrl!)
             nameLabel.text = user!.name
             screenNameLabel.text = user!.screenName
             

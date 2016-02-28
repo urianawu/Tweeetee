@@ -71,8 +71,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SearchUserCell", forIndexPath: indexPath) as! SearchUserCell
-        performSegueWithIdentifier("toUserProfileSegue", sender: cell)
+        let user = userResults[indexPath.row]
+        TwitterClient.sharedInstance.userProfileMedias(user.screenName, completion: { (medias, error) -> () in
+            user.medias = medias
+            self.performSegueWithIdentifier("toUserProfileSegue", sender: user)
+        })
+
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar)  {
@@ -106,14 +110,21 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
 
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let detailTweetViewController = segue.destinationViewController as? DetailTweetViewController {
+            detailTweetViewController.tweet = tweetResults[(tableView.indexPathForSelectedRow?.row)!]
+        }
+        if segue.identifier == "toUserProfileSegue" {
+            let navViewController = segue.destinationViewController as! UINavigationController
+            let profileViewController = navViewController.topViewController as! ProfileViewController
+            profileViewController.user = sender as? User
+        }
+        
     }
-    */
+    
 
 }
